@@ -50,6 +50,14 @@ class TelegramApi {
     return this._login;
   }
 
+  async loginAsBot(token) {
+    return this.apiCall('auth.importBotAuthorization', {
+      api_id: this.mtproto.api_id,
+      api_hash: this.mtproto.api_hash,
+      bot_auth_token: token
+    })
+  }
+
   async apiCall(method, params, options = {}) {
     try {
       Object.assign(this.__options__, options)

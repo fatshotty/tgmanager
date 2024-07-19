@@ -30,16 +30,18 @@ class TelegramClients {
   }
 
 
-  async addClient(userConfig) {
+  async addClient(userConfig, botToken) {
 
     const tg = new TelegramApi(userConfig.id, userConfig.api_id, userConfig.api_hash);
 
     Log.info('Load client for user:', userConfig.id);
 
     try {
-      const user = await tg.Login.getCurrentUser();
 
-      await tg.Login.getUserConfig();
+      const bot = await tg.loginAsBot(botToken);
+
+      const user = await tg.Login.getCurrentUser();
+      // await tg.Login.getUserConfig();
 
       Log.info('Login OK for user:', user.users[0].username, `${tg.Login.premium ? 'is premium' : 'is NOT premium'}`, 'and can upload', tg.Login.maxUploadParts, 'parts');
 

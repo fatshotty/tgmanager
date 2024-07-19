@@ -23,7 +23,7 @@ async function start() {
   await DB.initDatabase();
 
   for ( const user of Config.telegram.users){
-    await TelegramClients.addClient( user );
+    await TelegramClients.addClient( user, Config.telegram.bot_token );
   }
 
   if ( Config.http ) {
@@ -37,7 +37,7 @@ async function start() {
   }
 
   if ( Config.telegram.bot_token ) {
-    Bot.start();
+    // Bot.start();
   }
 
 }
