@@ -69,6 +69,11 @@ parser.add_argument('--http_pass',
                     nargs='?',
                     help='HTTP Basic Auth password'
                     )
+parser.add_argument('--http_ignore_auth_for',
+                    type = str,
+                    nargs='?',
+                    help='IP class for ignoring auth'
+                    )
 
 parser.add_argument('--list',
                     type = bool,

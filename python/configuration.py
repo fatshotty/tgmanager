@@ -55,7 +55,8 @@ def load_config(args):
       "host": args.http_host or getYamlValue(yamlFile, ['http', 'host']),
       "port": args.http_port or getYamlValue(yamlFile, ['http', 'port']),
       "user": args.http_user or getYamlValue(yamlFile, ['http', 'user']),
-      "password": args.http_pass or getYamlValue(yamlFile, ['http', 'pass'])
+      "password": args.http_pass or getYamlValue(yamlFile, ['http', 'pass']),
+      "ignoreAuthFor": args.http_ignore_auth_for or getYamlValue(yamlFile, ['http', 'ignoreAuthFor']),
     },
 
     "strm": {
